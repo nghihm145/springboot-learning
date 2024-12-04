@@ -23,4 +23,21 @@ private final MonthSalaryRepository monthSalaryRepository;
     public Optional<MonthSalary> getMonthSalary(long id) {
         return monthSalaryRepository.findById(id);
     }
+
+    @Override
+    public void deleteMonthSalaryById() {
+
+    }
+
+    @Override
+    public Optional<MonthSalary> addNewMonthSalaryById(MonthSalary monthSalary) {
+        return Optional.of(monthSalaryRepository.save(monthSalary));
+    }
+
+    @Override
+    public void updateMonthSalaryById(MonthSalary monthSalary) {
+         monthSalaryRepository.updateMonthSalaryById(monthSalary.getId(), monthSalary.getDescription());
+    }
+
+
 }
